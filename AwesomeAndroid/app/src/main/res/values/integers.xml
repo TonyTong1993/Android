@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--成功的状态码-->
+    <integer name="success">200</integer>
+    <integer name="failure">400</integer>
+</resources>

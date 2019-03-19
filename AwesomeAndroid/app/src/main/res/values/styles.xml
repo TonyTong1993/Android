@@ -1,0 +1,18 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    <!--冷启动时间是指当用户点击你的app那一刻到系统调用Activity.onCreate()之间的时间段。在这个时间段内，WindowManager会先加载app主题样式中的windowBackground做为app的预览元素，然后再真正去加载activity的layout布局-->
+    <style name="AppTheme.Launcher">
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowBackground">@drawable/window_background</item>
+    </style>
+
+</resources>
