@@ -1,6 +1,7 @@
 package com.example.zzht.awesome.modules;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
@@ -47,6 +48,11 @@ public class MainActivity extends AppCompatActivity {
         initView();
     }
 
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+    }
+
     private void initView() {
         setContentView(R.layout.activity_main);
 
@@ -60,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
         mBottomNavigationBar.addItem(item);
         item = new BottomNavigationItem(R.drawable.main_tab_messege, R.string.tab_message);
         mBottomNavigationBar.addItem(item);
-        item = new BottomNavigationItem(R.drawable.main_tab_manage, R.string.tab_manage);
+        item = new BottomNavigationItem(R.drawable.main_tab_manage, R.string.tab_mall);
         mBottomNavigationBar.addItem(item);
         item = new BottomNavigationItem(R.drawable.main_tab_my, R.string.tab_profile);
         mBottomNavigationBar.addItem(item);

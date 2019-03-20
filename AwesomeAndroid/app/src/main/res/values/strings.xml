@@ -2,6 +2,6 @@
     <string name="app_name">工程可视化</string>
     <string name="tab_main">首页</string>
     <string name="tab_message">消息</string>
-    <string name="tab_manage">现场管理</string>
+    <string name="tab_mall">商城</string>
     <string name="tab_profile">我</string>
 </resources>

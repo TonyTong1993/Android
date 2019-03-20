@@ -22,14 +22,17 @@
         android:theme="@style/AppTheme">
         <activity android:name=".modules.launch.SplashActivity"
             android:theme="@style/AppTheme.Launcher"
-            android:screenOrientation="portrait" android:launchMode="singleTask">
+            android:screenOrientation="portrait"
+            android:launchMode="standard">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".modules.MainActivity" />
+        <activity
+            android:name=".modules.MainActivity"
+            android:launchMode="singleTask" />
         <activity android:name=".modules.launch.LaunchActivity" />
 
         <!--region 适配全面屏-->

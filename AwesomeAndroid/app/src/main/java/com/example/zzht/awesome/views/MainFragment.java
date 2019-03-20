@@ -1,5 +1,6 @@
 package com.example.zzht.awesome.views;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -8,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.zzht.awesome.R;
+import com.example.zzht.awesome.modules.launch.LaunchActivity;
+import com.example.zzht.awesome.widgets.NavigationBar.NavigationBar;
 
 /**
  * Author by zzht, Email tongwanhua1993@163.com, Date on 2019/3/19.
@@ -19,6 +22,14 @@ public class MainFragment extends BaseFragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main,null);
+        view.findViewById(R.id.tv_test).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().startActivity(new Intent(getContext(), LaunchActivity.class));
+            }
+        });
+        NavigationBar titleBar = view.findViewById(R.id.nb_titleBar);
+        titleBar.setTitle(getResources().getString(R.string.tab_main));
         return view;
     }
 }
