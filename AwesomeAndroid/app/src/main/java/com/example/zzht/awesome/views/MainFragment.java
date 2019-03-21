@@ -28,8 +28,6 @@ public class MainFragment extends BaseFragment {
                 getActivity().startActivity(new Intent(getContext(), LaunchActivity.class));
             }
         });
-        NavigationBar titleBar = view.findViewById(R.id.nb_titleBar);
-        titleBar.setTitle(getResources().getString(R.string.tab_main));
         return view;
     }
 }

@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="NavigationBar">
-        <attr name="background" format="color" />
-    <attr name="title" format="string" />
-    <attr name="titleColor" format="color" />
-    <attr name="titleFont" format="dimension" />
-    <attr name="leftDrawable" format="reference" />
-    <attr name="leftItemTitle" format="string"/>
-    <attr name="backItemTitle" format="string"/>
-    <attr name="showBackItem" format="boolean"/>
-    <attr name="rightItemTitle" format="string"/>
-    <!--设置right or left item 着色-->
-    <attr name="tintColor" format="color"/>
-</declare-styleable>
+        <attr name="title" format="string" />
+        <attr name="titleColor" format="color" />
+        <attr name="titleFont" format="dimension" />
+        <attr name="leftDrawable" format="reference" />
+        <attr name="leftItemTitle" format="string" />
+        <attr name="backItemTitle" format="string" />
+        <attr name="showBackItem" format="boolean" />
+        <attr name="rightItemTitle" format="string" />
+        <!--设置right or left item 着色-->
+        <attr name="tintColor" format="color" />
+    </declare-styleable>
 </resources>

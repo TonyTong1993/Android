@@ -19,6 +19,5 @@ public class LaunchActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launch);
         NavigationBar titleBar = findViewById(R.id.nb_titleBar);
-        titleBar.setTitle(getResources().getString(R.string.tab_main));
     }
 }

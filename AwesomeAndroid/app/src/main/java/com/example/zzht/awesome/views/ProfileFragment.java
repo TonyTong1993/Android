@@ -20,7 +20,6 @@ public class ProfileFragment extends BaseFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_profile,null);
         NavigationBar titleBar = view.findViewById(R.id.nb_titleBar);
-        titleBar.setTitle(getResources().getString(R.string.tab_profile));
         return view;
     }
 }

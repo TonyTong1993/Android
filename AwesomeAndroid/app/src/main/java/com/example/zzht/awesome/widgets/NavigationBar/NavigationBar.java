@@ -6,10 +6,14 @@ import com.example.zzht.awesome.R;
 import com.nineoldandroids.animation.Animator;
 import com.nineoldandroids.animation.AnimatorListenerAdapter;
 import com.nineoldandroids.animation.ValueAnimator;
+
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.ColorStateList;
+import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -39,7 +43,7 @@ public class NavigationBar extends RelativeLayout {
 	private LinearLayout mLeftContainer;
 	private LinearLayout mRightContainer;
 	private LinearLayout mCenterContainer;
-	private TitleView mTitleView;
+	private TTTitleView mTitleView;
 	private TabView mTabView;
 	private View mHorizontalDivider;
 	
@@ -58,19 +62,50 @@ public class NavigationBar extends RelativeLayout {
 		 */
 		public static final int TAB = 1;
 	}
-	
+	//TODO:新增attributes
+	private String mTitle;
+	private int mTitleColor;
+	private Drawable mLeftDrawable;
+	private String mLeftItemTitle;
+	private String mBackItemTitle;
+	private String mRightItemTitle;
+	private Boolean mShowBackItem;
+	private int mTintColor;
+
 	public NavigationBar(Context context) {
 		this(context, null);
 	}
 	
 	public NavigationBar(Context context, AttributeSet attrs) {
 		this(context, attrs, 0);
+
 	}
 	
 	public NavigationBar(Context context, AttributeSet attrs, int defStyleAttr) {
 		super(context, attrs, defStyleAttr);
-		
+		parseAttrs(context, attrs);
 		init();
+	}
+
+	@TargetApi(Build.VERSION_CODES.LOLLIPOP)
+	public NavigationBar(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+		super(context, attrs, defStyleAttr, defStyleRes);
+		parseAttrs(context, attrs);
+		init();
+	}
+
+	private void parseAttrs(Context context, AttributeSet attrs) {
+		if (null != attrs) {
+			TypedArray typedArray = context.getTheme().obtainStyledAttributes(attrs,R.styleable.NavigationBar,0,0);
+			mTitle = typedArray.getString(R.styleable.NavigationBar_title);
+			mTitleColor = typedArray.getColor(R.styleable.NavigationBar_titleColor,Color.BLACK);
+			mLeftDrawable = typedArray.getDrawable(R.styleable.NavigationBar_leftDrawable);
+			mLeftItemTitle = typedArray.getString(R.styleable.NavigationBar_leftItemTitle);
+			mBackItemTitle = typedArray.getString(R.styleable.NavigationBar_backItemTitle);
+			mRightItemTitle = typedArray.getString(R.styleable.NavigationBar_rightItemTitle);
+			mTintColor = typedArray.getColor(R.styleable.NavigationBar_tintColor,Color.BLACK);
+			mShowBackItem = typedArray.getBoolean(R.styleable.NavigationBar_showBackItem,true);
+		}
 	}
 
 	private void init() {
@@ -106,6 +141,9 @@ public class NavigationBar extends RelativeLayout {
 		params.leftMargin = getContext().getResources().getDimensionPixelSize(R.dimen.navigation_bar_margin);
 		params.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
 		addView(mLeftContainer, params);
+		//control back item visiable
+		mTitleView.setShowBackItem(mShowBackItem);
+
 	}
 	
 	private void initRightContainer() {
@@ -264,10 +302,14 @@ public class NavigationBar extends RelativeLayout {
 	}
 	
 	private void initTitleView() {
-		mTitleView = new TitleView(getContext());
+		mTitleView = new TTTitleView(getContext());
 		mCenterContainer.removeAllViews();
 		mCenterContainer.addView(mTitleView);
-		setTitleTextColor(DEFAULT_BUTTON_TEXT_COLOR);
+		setTitleTextColor(mTitleColor);
+		if (null != mTitle) {
+			setTitle(mTitle);
+		}
+
 	}
 	
 	public void setTitle(CharSequence text) {
@@ -299,7 +341,7 @@ public class NavigationBar extends RelativeLayout {
 	}
 	
 	/**
-	 * Set tabs after {@link setNavigationBarStyle(Style.TAB)} has been called.
+	 * Set tabs after {@link } has been called.
 	 * @param titles
 	 * @param uncheckedColor
 	 * @param checkedColor
