@@ -1,0 +1,32 @@
+{
+	"_type": "Project",
+	"_id": "AAAAAAFF+h6SjaM2Hec=",
+	"name": "Android-组件化",
+	"ownedElements": [
+		{
+			"_type": "UMLModel",
+			"_id": "AAAAAAFqJQMVHpUO5gU=",
+			"_parent": {
+				"$ref": "AAAAAAFF+h6SjaM2Hec="
+			},
+			"name": "模型",
+			"ownedElements": [
+				{
+					"_type": "UMLComponentDiagram",
+					"_id": "AAAAAAFqJQMVHpUPv/I=",
+					"_parent": {
+						"$ref": "AAAAAAFqJQMVHpUO5gU="
+					},
+					"name": "项目组件图",
+					"visible": true,
+					"defaultDiagram": false
+				}
+			],
+			"visibility": "public"
+		}
+	],
+	"author": "童万化",
+	"company": "com.zzht",
+	"copyright": "版权归童万华所有",
+	"version": "1.0"
+}
